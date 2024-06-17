@@ -16,7 +16,7 @@ public class bj14501 {
 			if(i+T[i] > N+1) {
 				D[i] = D[i+1];
 			} else {
-				D[i] = D[i+T[i]]+P[i];
+				D[i] = Math.max(D[i+T[i]]+P[i], D[i+1]);
 			}
 		}
 		
