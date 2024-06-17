@@ -12,5 +12,6 @@ public class bj11726 {
 		}
 		
 		System.out.println(D[N]);
+		// 결과값에 10007를 나눠주게되면 for문에서 계산할때 오버플로우가 발생할 확률이 높아짐
 	}
 }
