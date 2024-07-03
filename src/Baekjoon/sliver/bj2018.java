@@ -27,5 +27,6 @@ public class bj2018 {
 			}
 		}
 		System.out.println(count);
+		sc.close();
 	}
 }
