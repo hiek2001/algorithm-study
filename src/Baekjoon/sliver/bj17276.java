@@ -26,6 +26,7 @@ public class bj17276 {
 				}
 			}
 			
+			
 			m = (n+1)/2;
 			count = Math.abs(d) / 45;
 			if(d > 0) { // 양수 : 시계 방향	
