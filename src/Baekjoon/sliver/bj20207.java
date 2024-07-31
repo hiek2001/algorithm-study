@@ -38,7 +38,7 @@ public class bj20207 {
 	
 	public static void check(int start, int end) {
 		for(int i=start; i<=end ; i++) {
-			arr[i] = ++arr[i];
+			arr[i]++;
 		}
 	}
 }
