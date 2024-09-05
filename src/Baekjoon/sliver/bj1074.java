@@ -16,6 +16,9 @@ import java.io.*;
 -> 2사분면 : count += size * size / 4;
 -> 3사분면 : count += (size * size / 4) * 2;
 -> 4사분면 : count += (size * size / 4) * 3;
+
+14280 KB , 100 ms
+
  */
 public class bj1074 {
 	static int size, r, c;
