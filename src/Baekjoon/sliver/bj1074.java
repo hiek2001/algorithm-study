@@ -29,6 +29,7 @@ public class bj1074 {
 		
 		size = (int)Math.pow(2, N); // 한 변의 길이
 		find(size, r, c);
+		
 		System.out.print(count);
 	}
 	
