@@ -7,6 +7,8 @@ import java.io.*;
  * 전체 문자열은 바로 저장, 1자리 문자열은 for문을 사용하여 HashSet에 저장
  * 2자리 문자열부터 substring을 사용해 원하는 문자열을 잘라 저장하고
  * 재귀함수를 호출하여 str.length()-1 자리까지 저장한다. 
+ * 
+ * 226892 kb, 644 ms
  */
 public class bj11478 {
 	static HashSet<String> set = new HashSet<>();
