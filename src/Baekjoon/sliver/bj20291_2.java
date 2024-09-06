@@ -2,6 +2,9 @@ package Baekjoon.sliver;
 import java.util.*;
 import java.io.*;
 /*
+ * 73756 kb , 856 ms
+ * 
+ * 20291 파일 정리
  * 
  */
 public class bj20291_2 {
