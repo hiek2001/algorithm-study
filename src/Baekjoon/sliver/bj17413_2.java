@@ -9,6 +9,8 @@ import java.io.*;
  * 괄호 밖 공백일 경우, Stack의 모든 값을 꺼낸다.
  * 현재 인덱스가 괄호일 경우, Stack에 있는 모든 값을 꺼낸다.
  * 모든 과정이 끝난 후에 Stack에 남아있는 값이 있다면 모두 꺼낸다.
+ * 
+ * 23208 kb, 204ms
  */
 public class bj17413_2 {
 	public static void main(String[] args) throws Exception {
