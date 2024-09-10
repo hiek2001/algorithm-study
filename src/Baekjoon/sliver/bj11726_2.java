@@ -1,5 +1,7 @@
 package Baekjoon.sliver;
 import java.util.*;
+// 점화식 형태와 의미
+// DP[N] = 2 x N 크기의 직사각형 1X2 , 2X1 타일로 채우는 "갯수"
 public class bj11726_2 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
