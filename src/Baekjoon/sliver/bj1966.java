@@ -1,5 +1,14 @@
 package Baekjoon.sliver;
 import java.util.*;
+/**
+ * 1966, 프린터 큐
+ * 
+ * Queue에는 문서의 인덱스와 중요도를 저장
+ * PriorityQueue는 중요도를 내림차순으로 저장
+ * Queue에서 문서를 하나씩 꺼내서 그 문서의 중요도가 PriorityQueue 최상단과 일치하는지 비교
+ *  
+ * 16380 kb, 144 ms
+ */
 import java.io.*;
 public class bj1966 {
 	public static void main(String[] args) throws Exception {
@@ -9,10 +18,10 @@ public class bj1966 {
 		for(int i=0 ; i<testCase ; i++) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			int N = Integer.parseInt(st.nextToken());
-			int checkNum = Integer.parseInt(st.nextToken()); // 말 이해가 어려웠음. 기존 checkNum 자리가 몇번째로 출력되는지
+			int checkNum = Integer.parseInt(st.nextToken()); 
 			
 			Queue<Textbook> que = new LinkedList<Textbook>();
-			PriorityQueue<Integer> pQue = new PriorityQueue<>(Collections.reverseOrder()); // max로 비교할 경우, 중요도가 같을때 비교 못함. 우선순위 que 사용하기
+			PriorityQueue<Integer> pQue = new PriorityQueue<>(Collections.reverseOrder()); 
 			st = new StringTokenizer(br.readLine());
 			for(int j=0 ; j<N ; j++) { // 중요도 입력 받기	
 				int weight = Integer.parseInt(st.nextToken());
