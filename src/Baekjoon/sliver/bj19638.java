@@ -54,13 +54,13 @@ public class bj19638 {
 			usedCount++;
 		}
 		
-		if(pq.peek() >= 10 || pq.peek() == 1) {
-			sb.append("NO").append("\n");
-			sb.append(pq.poll());
-		} else {
-			sb.append("YES").append("\n");
-			sb.append(usedCount);
-		}
+		if(pq.peek() < centi) {
+            sb.append("YES").append("\n");
+            sb.append(usedCount);
+        } else {
+            sb.append("NO").append("\n");
+            sb.append(pq.poll());
+        }
 		
 		System.out.print(sb);
 		
