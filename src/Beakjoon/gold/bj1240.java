@@ -3,8 +3,7 @@ import java.util.*;
 import java.io.*;
 public class bj1240 {
 	static boolean[] visited;
-	static int[] weight;
-	static ArrayList<Integer> A[];
+	static ArrayList<ArrayList<Node>> A = new ArrayList<>();
 	public static void main(String[] args) throws Exception {
 		StringBuilder sb = new StringBuilder();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -12,21 +11,18 @@ public class bj1240 {
 		int N = Integer.parseInt(st.nextToken());
 		int M = Integer.parseInt(st.nextToken());
 		
-		A = new ArrayList[N+1];
-		for(int i=0 ; i<N+1 ; i++) {
-			A[i] = new ArrayList<Integer>();
+		for(int i=0 ; i<=N ; i++) {
+			A.add(new ArrayList<>());
 		}
 		
-		weight = new int[N+1];
-		for(int i=1 ; i<N ; i++) {
+		for(int i=0 ; i<N-1 ; i++) {
 			st = new StringTokenizer(br.readLine());
 			int S = Integer.parseInt(st.nextToken());
 			int E = Integer.parseInt(st.nextToken());
+			int W = Integer.parseInt(st.nextToken());
 			
-			A[S].add(E);
-			weight[S] = Integer.parseInt(st.nextToken());
-			A[E].add(S);
-			
+			A.get(S).add(new Node(E, W));	
+			A.get(E).add(new Node(S, W));
 		}
 		
 		for(int i=0 ; i<M ; i++) {
@@ -43,24 +39,33 @@ public class bj1240 {
 	}
 	
 	static int bfs(int s, int e) {
-		Queue<Integer> que = new ArrayDeque<Integer>();
-		int sum = 0;
+		Queue<Node> que = new ArrayDeque<Node>();
 		
-		que.add(s);
+		que.add(new Node(s, 0));
 		visited[s] = true;
 		
 		while(!que.isEmpty()) {
-			int now = que.poll();
+			Node current = que.poll();
+			int now = current.end;
+			int weight = current.weight;
 			
-			for(int next : A[now]) {
-				if(!visited[next]) {
-					que.add(next);
-					visited[next] = true;
-					sum += weight[next];
-					if(next == e) return sum;
+			if(now == e) return weight;
+			
+			for(Node next : A.get(now)) {
+				if(!visited[next.end]) {
+					que.add(new Node(next.end, weight + next.weight));
+					visited[next.end] = true;
 				}
 			}
 		}
-		return sum;
+		return -1;
+	}
+	
+	static class Node{
+		int end, weight;
+		Node(int end, int weight) {
+			this.end = end;
+			this.weight = weight;
+		}
 	}
 }
