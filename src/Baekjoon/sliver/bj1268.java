@@ -25,7 +25,7 @@ import java.io.*;
 public class bj1268 {
 	static int[][] arr;
 	
-	static class Student{
+	static class Student{ // 학생의 번호, 같은반 횟수
 		int num, count;
 		Student(int num, int count) {
 			this.num = num;
@@ -55,7 +55,7 @@ public class bj1268 {
 		}
 		
 		// 학생 간의 같은 반 횟수를 계산
-		for(int i=1 ; i<=N ; i++) { // 비교 기준 학생
+		for(int i=1 ; i<=N ; i++) { // 기준 학생
 			for(int j=1 ; j<=N ; j++) { // 비교 대상 학생
 				if(i != j && wasClassmate(i, j)) {
 					students.get(i-1).count++; // 같은 반인 적이 있으면 count 증가
