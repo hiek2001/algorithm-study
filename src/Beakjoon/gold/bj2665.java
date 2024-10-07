@@ -7,10 +7,11 @@ public class bj2665 {
     static int N;
     
     static class Node{
-        int x, y;
-        Node(int x, int y) {
+        int x, y, count;
+        Node(int x, int y, int count) {
             this.x = x;
             this.y = y;
+            this.count = count;
         }
     }
     public static void main(String[] args) throws Exception {
@@ -38,13 +39,14 @@ public class bj2665 {
         int[] dy = {0,0,-1,1};
         
         Queue<Node> que = new ArrayDeque<Node>();
-        que.add(new Node(start, end));
+        que.add(new Node(start, end, 0));
         dist[start][end] = 0; // 시작하는 곳은 0으로 초기화
         
         while(!que.isEmpty()) { // queue의 값이 없어질 때까지
             Node now = que.poll();
             int x = now.x;
             int y = now.y;
+            int count = now.count;
             
             for(int i=0 ; i<4 ; i++) { // 동,서,남,북 이동하면서 검은방인지 흰방인지 확인
                 int nx = x + dx[i];
@@ -52,14 +54,14 @@ public class bj2665 {
                 
                 if(nx < 0 || ny < 0 || nx > N-1 || ny > N-1) continue; // 미로 배열 안에서만 탐색
                 
-                if(dist[nx][ny] > dist[x][y]) { // 무한대 보다 크면 
-                    if(map[nx][ny] == 0) { // 검은 방이면 지나온 검은 방 추가
-                        dist[nx][ny] = dist[x][y] + 1;
-                    } else { // 흰 방이면 그대로 
-                        dist[nx][ny] = dist[x][y];
-                    }
-                    que.add(new Node(nx, ny)); // 지나온 방 queue에 추가
+                int nextCount = count + (map[nx][ny] == 0 ? 1 : 0);
+                
+            	if(dist[nx][ny] > nextCount) { // 무한대 보다 크면 
+                    dist[nx][ny] = nextCount;
+                    que.add(new Node(nx, ny, nextCount)); // 지나온 방 queue에 추가
                 }
+                
+                
             }
         }
     }
